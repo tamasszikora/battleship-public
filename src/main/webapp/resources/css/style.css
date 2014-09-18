@@ -1,0 +1,363 @@
+@font-face {
+    font-family: ruskof;
+    src: url(../fonts/RUSKOF.ttf);
+}
+
+@font-face {
+    font-family: anglican;
+    src: url(../fonts/AnglicanText.ttf);
+}
+
+body {
+	background-image: url(../pics/oldpaper.jpg);
+/* 	background-repeat: no-repeat; */
+	margin: auto;
+	background-size: 100%;
+	font-family: ruskof;
+	color: #555;
+	width: 1600px;
+}
+
+header {
+	font-size: 100px;
+	width: 900px;
+	height: 183px;
+	border-bottom: 10px solid #555;
+	margin: auto;
+	cursor: default;
+}
+
+header h1 {
+	margin: 40px 20px;
+	float: left;
+}
+
+em {
+	font-weight: bold;
+}
+
+header div img {
+	width: 370px;
+	height: 143px;
+	margin: 20px 20px;
+	float: left;
+	opacity: 0.75;
+}
+
+.sidepics {
+	display: inline-block;
+	float: left;
+	margin: 30px 10px 0px 10px;
+	opacity: 0.75;
+}
+
+.sidepics img {
+	width: 330px;
+	height: 400px;
+}
+
+.main {
+	float: left;
+	display: inline-block;
+	font-size: 20px;
+	width: 900px;
+	height: 400px;
+	margin-bottom: 100px;
+}
+
+h2 {
+	font-size: 50px;
+	cursor: default;
+}
+
+#home-div {
+	clear: both;
+}
+
+.game-mode-form {
+	display: inline-block;
+	float: left;
+	padding: 10px 0px;
+	margin: 20px 0px;
+	margin-left: 50px;
+	border: solid 2px #555;
+	height: 50px;
+}
+
+.game-mode-form form {
+	position: relative;
+	top: -30px;
+	margin: 0px 10px;
+}
+
+.legend {
+	display: inline-block;
+	background-color: #555;
+	color: white;
+	padding: 2px 10px;
+	position: relative;
+	top: -20px;
+	left: -10px;
+}
+
+.pic {
+	margin: 0px;
+	padding: 0px;
+	border: none;
+	position: relative;
+	top: 10px;
+	cursor: pointer;
+}
+
+#local-game-pic {
+	width: 160px;
+	height: 46px;
+}
+
+#send-request-pic {
+	width: 46px;
+	height: 46px;
+}
+
+@-webkit-keyframes move-ship {
+	100% {-webkit-transform: translate(700px);}
+}
+
+.menu {
+	margin-top: 10px;
+}
+
+.menu h2, p {
+	float: left;
+	margin-left: 15px;
+	margin-bottom: 20px;
+}
+
+#elapsed-time {
+	float: right;
+	margin-top: 8px;
+	margin-right: 10px;
+	cursor: default;
+	font-size: 30px;
+}
+
+#leaderboard {
+	clear: both;
+	margin-left: 20px;
+}
+
+#leaderboard table {
+	display: inline-block;
+	margin-left: 10px;
+	margin-right: 30px;
+/* 	float: left; */
+}
+
+#leaderboard table td {
+	font-size: 30px;
+	padding: 0px 20px;
+/* 	border: 2px solid #555; */
+}
+
+p {
+	margin-top: 15px;
+	text-decoration: none;
+	color: #555;
+	cursor: pointer;
+}
+
+.menu form {
+	float: left;
+	margin-left: 20px;
+	margin-top: 13px;
+	text-decoration: none;
+	color: #555;
+	cursor: pointer;
+}
+
+#player-grid-parent {
+	clear: both;
+	-webkit-perspective: 1000px;
+	margin: auto;
+}
+
+#ship-div-data {
+ 	-webkit-perspective: 1000px;
+ 	width: 430px;
+	margin: auto;
+}
+
+#scene {
+	-webkit-transform-style: preserve-3d;
+}
+
+#player-grid {
+	float: left;
+	-webkit-perspective: 600px;
+	-webkit-transform-style: preserve-3d;
+	margin-right: 12px;
+	width: 300px;
+	height: 300px;
+/* 	border-right: 2px solid #555; */
+}
+
+#enemy-grid {
+	float: left;
+	-webkit-perspective: 600px;
+	-webkit-transform-style: preserve-3d;
+	width: 300px;
+	height: 300px;
+}
+
+#placeable-ships-grid {
+	float: left;
+	-webkit-transform-style: preserve-3d;
+}
+
+.ship-div {
+	float: left;
+	width: 120px;
+	cursor: pointer;
+}
+
+#shape-matrix {
+	float: left;
+	width: 120px;
+	height: 120px;
+	-webkit-perspective: 600px;
+	-webkit-transform-style: preserve-3d;
+}
+
+#button-grid {
+	float: left;
+	width: 215px;
+	-webkit-transform-style: preserve-3d;
+}
+
+#button-grid form {
+	margin-bottom: 10px;
+}
+
+.cube {
+	position: relative;
+	float: left;
+	margin: 10px;
+	width: 10;
+	height: 10;
+	-webkit-transform-style: preserve-3d;
+	-webkit-transition: transform 0.6s;
+}
+
+.water {
+	background: #444;
+}
+
+.ship {
+/* 	background: #647687; */
+	background: #8697A9;
+}
+
+.miss {
+	background: #1BA1E2;
+}
+
+.hit {
+	background: #A20025;
+}
+
+#enemy-grid .cube:hover .cube-face {
+	background: black;
+}
+
+#shape-matrix .cube:hover .cube-face {
+	background: black;
+}
+
+.cube-face {
+	width: inherit;
+	height: inherit;
+	position: absolute;
+	background: inherit;
+	opacity: 0.8;
+}
+
+.cube-face-front {
+	-webkit-transform: translateZ(5px);
+}
+
+.cube-face-back {
+	-webkit-transform: rotateY(180deg) translateZ(5px);
+}
+
+.cube-face-left {
+	-webkit-transform: rotateY(-90deg) translateZ(5px);
+}
+
+.cube-face-right {
+	-webkit-transform: rotateY(90deg) translateZ(5px);
+}
+
+.cube-face-top {
+	-webkit-transform: rotateX(90deg) translateZ(5px);
+}
+
+.cube-face-bottom {
+	-webkit-transform: rotateX(-90deg) translateZ(5px);
+}
+
+.drop {
+	-webkit-perspective: 600px;
+}
+
+.drop div {
+	-webkit-transform-style: preserve-3d;
+}
+
+@-webkit-keyframes to-2d {
+	from {-webkit-transform: rotateY(-30deg) rotateX(30deg);}
+	to {-webkit-transform: rotateY(0deg) rotateX(0deg);}
+}
+
+@-webkit-keyframes to-3d {
+	from {-webkit-transform: rotateY(0deg) rotateX(0deg);}
+	to {-webkit-transform: rotateY(-30deg) rotateX(30deg);}
+}
+
+#dimensions {
+	clear: both;
+	padding: 0px 20px;
+	width: 900px;
+	margin: 0px auto;
+	font-size: 40px;
+}
+
+#dimensions p {
+	display: inline-block;
+	float: right;	
+}
+
+@-webkit-keyframes waving-five {
+	25% {-webkit-transform: translateZ(5px);}
+/* 	75% {-webkit-transform: translateZ(-5px);} */
+	100% {-webkit-transform: translateZ(0px);}
+}
+
+@-webkit-keyframes waving-seven {
+	50% {-webkit-transform: translateZ(10px);}
+/* 	75% {-webkit-transform: translateZ(-10px);} */
+	100% {-webkit-transform: translateZ(0px);}
+}
+
+@-webkit-keyframes waving-nine {
+	50% {-webkit-transform: translateZ(15px);}
+/* 	75% {-webkit-transform: translateZ(-15px);} */
+	100% {-webkit-transform: translateZ(0px);}
+}
+
+#end-dialog {
+	display: none;
+}
+
+#battle-request-dialog {
+	display: none;
+}

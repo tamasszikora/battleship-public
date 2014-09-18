@@ -1,0 +1,15 @@
+package com.epam.battleship.domain;
+
+public enum BattleStatus {
+	BATTLE_ERROR,
+	REQUEST_SENT,
+	REQUEST_DECLINED,
+	PLACE_SHIPS,
+	PLACE_SHIPS_READY,
+	PLAYER_ONE_TURN,
+	PLAYER_TWO_TURN,
+	YOUR_TURN,
+	NOT_YOUR_TURN,
+	PLAYER_ONE_WON,
+	PLAYER_TWO_WON;
+}

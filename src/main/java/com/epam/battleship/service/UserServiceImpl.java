@@ -43,7 +43,11 @@ public class UserServiceImpl implements UserService {
 	
 	@Override
 	public List<User> getOpponents(User user) {
-		return userRepository.getOpponents(UserStatus.ACTIVE.name(), user.getId());
+		List<User> opponents = userRepository.getOpponents(UserStatus.ACTIVE.name(), user.getId());
+		if (opponents.size() == 0) {
+			opponents = null;
+		}
+		return opponents;
 	}
 
 	@Override

@@ -10,9 +10,9 @@ classColors["hit"] = "#A20025";
 var cubeFaces = [ "front", "back", "left", "right", "top", "bottom" ];
 
 $(document).ready(function() {
-	var resetGame = document.getElementById("reset-game-button");
-	resetGame.addEventListener('click', function() {
-		document.getElementById("reset-game-form").submit();
+	$("a").on("click", function(event){
+		event.preventDefault();
+		document.getElementById($(this).data("form")).submit();
 	});
 	
 	placeCubesFilledWithJSONDataToEnemyGrid();

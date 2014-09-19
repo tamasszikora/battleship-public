@@ -1,17 +1,12 @@
 $(document).ready(function() {
-	var createNewShip = document.getElementById("create-ship-button");
-	createNewShip.addEventListener('click', function() {
+	$("a").on("click", function(event){
+		event.preventDefault();
 		var shipName = document.getElementById("shipname");
-		if(shipName.value == "") {
+		if ($(this).data("form") == "create-ship-form" && shipName.value == "") {
 			alert("The Name input field must not be empty!");
 		} else {
-			document.getElementById("create-ship-form").submit();
+			document.getElementById($(this).data("form")).submit();
 		}
-	});
-	
-	var placeShips = document.getElementById("place-ships-button");
-	placeShips.addEventListener('click', function() {
-		document.getElementById("place-ships-form").submit();
 	});
 	
 	buildShapeMatrix();

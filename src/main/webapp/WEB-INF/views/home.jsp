@@ -16,7 +16,8 @@
 			<h2>Choose your Enemy</h2>
 			<c:choose>
 				<c:when test="${loggedInAs == ''}">
-					<p id="log-in-button">Log in as</p>
+					<p></p>
+					<a href="" data-form="log-in-form">Log in as</a>
 					<form id="log-in-form" action="/battleship/logIn" method="POST">
 						<select name="userId">
 							<c:forEach var="user" items="${users}">
@@ -26,33 +27,30 @@
 					</form>
 				</c:when>
 				<c:otherwise>
-					<p>
-						Logged in as ${loggedInAs}
-					</p>
-					<p id="log-out-button">Log out</p>
+					<p>Logged in as ${loggedInAs}</p>
+					<a href="" data-form="log-out-form">Log out</a>
 				</c:otherwise>
 			</c:choose>
 		</div>
 		<form id="log-out-form" action="/battleship/logOut" method="POST"></form>
 		
-		<div id="home-div" class="game-mode-form">
-			<div class="legend">Human Resistance</div>
-			<form id="local-game-form" action="/battleship/local/gettingStarted" method="GET">
-				<label>Fight against CPU</label>
-				<img class="pic" id="local-game-pic" alt="" src="/battleship/resources/pics/battleship.png">
-			</form>
+		<div id="local-game-mode" class="game-mode-form">
+			<div class="legend">Human Resistance - Fight against CPU</div>
+			<div><a id="local-game-pic" href="" data-form="local-game-form"></a></div>
 		</div>
+		<form id="local-game-form" action="/battleship/local/gettingStarted" method="GET"></form>
 		
-		<div class="game-mode-form">
-			<div class="legend">Alien Fleet</div>
+		<div id="remote-game-mode" class="game-mode-form">
+			<div class="legend">Alien Fleet - Choose your opponent</div>
 			<form id="send-request-form" action="/battleship/sendRequest" method="POST">
-				<label for="opponentId">Choose your opponent</label>
-				<select id="opponent-selector" name="opponentId" <c:if test="${loggedInAs == ''}">disabled</c:if>>
-					<c:forEach var="opponent" items="${opponents}">
-						<option value="${opponent.id}">${opponent.name}</option>
-					</c:forEach>
-				</select>
-				<img class="pic" id="send-request-pic" alt="" src="/battleship/resources/pics/alienship.png">
+				<div><a id="send-request-pic" href="" data-form="send-request-form"></a></div>
+				<div id="opponent-selector">
+					<select id="opponent-select" name="opponentId" <c:if test="${opponents == null || loggedInAs == ''}">disabled</c:if>>
+						<c:forEach var="opponent" items="${opponents}">
+							<option value="${opponent.id}">${opponent.name}</option>
+						</c:forEach>
+					</select>
+				</div>
 			</form>
 		</div>
 		<form id="remote-game-form" action="/battleship/remote/gettingStarted" method="GET"></form>

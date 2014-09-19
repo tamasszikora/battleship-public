@@ -1,19 +1,19 @@
 package com.epam.battleship.domain;
 
 public abstract class Grid {
-	protected final int GRIDWIDTH = 10;
-	protected final int GRIDHEIGHT = 10;
-	protected final int GRIDSIZE = 100;
+	protected final int gridWidth = 10;
+	protected final int gridHeight = 10;
+	protected final int gridSize = 100;
 	
 	public int getGridWidth() {
-		return GRIDWIDTH;
+		return gridWidth;
 	}
 	
 	public int getGridHeight() {
-		return GRIDHEIGHT;
+		return gridHeight;
 	}
 	
 	public int getGridSize() {
-		return GRIDSIZE;
+		return gridSize;
 	}
 }

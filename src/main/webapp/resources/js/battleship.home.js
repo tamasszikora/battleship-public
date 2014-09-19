@@ -1,47 +1,15 @@
 $(document).ready(function() {
-	var logInButton = document.getElementById("log-in-button");
-	if(logInButton != null) {
-		logInButton.addEventListener('click', function(){
-			document.getElementById("log-in-form").submit();
-		}, false);
-	}
-	
-	var logOutButton = document.getElementById("log-out-button");
-	if(logOutButton != null) {
-		logOutButton.addEventListener('click', function(){
-			document.getElementById("log-out-form").submit();
-		}, false);
-	}
-	
-	var localImg = document.getElementById("local-game-pic");
-	localImg.addEventListener('click', function(){
-		if(document.getElementById("opponent-selector").disabled) {
+	$("a").on("click", function(event){
+		event.preventDefault();
+		if (($(".menu p").text() == "" || $("#opponent-select").disabled)&& ($(this).data("form") == "local-game-form" || $(this).data("form") == "send-request-form")) {
 			alert("You have to log in if you want to play!");
 		} else {
-//			$(this).css("z-index","100");
-//			$(this).css("-webkit-animation","move-ship 1s");
-//			window.setTimeout(function() {submitLocalForm();},900);
-			document.getElementById("local-game-form").submit();
+			document.getElementById($(this).data("form")).submit();
 		}
-	}, false);
-	
-	var sendRequestImg = document.getElementById("send-request-pic");
-	if(sendRequestImg != null) {
-		sendRequestImg.addEventListener('click', function(){
-			if(document.getElementById("opponent-selector").disabled) {
-				alert("You have to log in if you want to play against others!");
-			} else {
-				document.getElementById("send-request-form").submit();
-			}
-		}, false);
-	}
+	});
 	
 	checkUserStatus();
 });
-
-//function submitLocalForm() {
-//	document.getElementById("local-game-form").submit();
-//}
 
 function checkUserStatus() {
 	userStatusInterval = setInterval(function() {

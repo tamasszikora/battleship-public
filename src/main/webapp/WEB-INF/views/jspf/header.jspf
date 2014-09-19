@@ -3,7 +3,7 @@
 		<div>
 			<img alt="" src="/battleship/resources/pics/header.jpg">
 		</div>
-		<p id="three-dimension" hidden>${threeDimension}</p>
+		<p id="three-dimension" hidden="hidden">${threeDimension}</p>
 	</header>
 	<div id="leftside" class="sidepics">
 		<img alt="BalazsPic" src="/battleship/resources/pics/sidepicleft.png">

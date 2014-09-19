@@ -70,24 +70,40 @@ h2 {
 	cursor: default;
 }
 
-#home-div {
+#local-game-mode {
 	clear: both;
 }
 
 .game-mode-form {
 	display: inline-block;
 	float: left;
-	padding: 10px 0px;
+	padding: 0px;
 	margin: 20px 0px;
 	margin-left: 50px;
 	border: solid 2px #555;
-	height: 50px;
+	width: 350px;
+	height: 100px;
 }
 
-.game-mode-form form {
-	position: relative;
-	top: -30px;
-	margin: 0px 10px;
+.game-mode-form:hover #local-game-pic {
+	background: url(../pics/battleshipclrwb.png);
+	background-repeat: no-repeat;
+	background-size: 320px 92px;
+}
+
+.game-mode-form:hover #send-request-pic {
+	background: url(../pics/alienshipclrwb.png);
+	background-repeat: no-repeat;
+	background-size: 320px 92px;
+}
+
+#local-game-mode:hover .legend {
+	color: #1BA1E2;
+}
+
+#remote-game-mode:hover .legend {
+/* 	color: #A20025; */
+	color: #FF0000;
 }
 
 .legend {
@@ -96,41 +112,73 @@ h2 {
 	color: white;
 	padding: 2px 10px;
 	position: relative;
-	top: -20px;
+	top: -15px;
 	left: -10px;
 }
 
-.pic {
-	margin: 0px;
-	padding: 0px;
-	border: none;
-	position: relative;
-	top: 10px;
-	cursor: pointer;
-}
-
 #local-game-pic {
-	width: 160px;
-	height: 46px;
+	position: relative;
+	top: -15px;
+	left: 15px;
+	margin: 0px;
+	background-image: url(../pics/battleship.png);
+	background-repeat: no-repeat;
+	background-size: 320px 92px;
+	width: 320px;
+	height: 92px;
 }
 
 #send-request-pic {
-	width: 46px;
-	height: 46px;
+	position: relative;
+	top: -20px;
+	left: 15px;
+	margin: 0px;
+	background-image: url(../pics/alienship.png);
+	background-repeat: no-repeat;
+	background-size: 320px 92px;
+	width: 320px;
+	height: 92px;
 }
 
-@-webkit-keyframes move-ship {
-	100% {-webkit-transform: translate(700px);}
+#opponent-selector {
+	display: inline-block;
+	position: relative;
+	top: -100px;
+	left: 10px;
 }
+
+/* @-webkit-keyframes move-ship { */
+/* 	100% {-webkit-transform: translate(700px);} */
+/* } */
 
 .menu {
 	margin-top: 10px;
 }
 
-.menu h2, p {
+.menu h2, p, a {
 	float: left;
 	margin-left: 15px;
 	margin-bottom: 20px;
+}
+
+p, a {
+	margin-top: 15px;
+	text-decoration: none;
+	color: #555;
+/* 	cursor: pointer; */
+}
+
+a:hover {
+	color: #A20025;
+}
+
+.menu form {
+	float: left;
+	margin-left: 20px;
+	margin-top: 13px;
+	text-decoration: none;
+	color: #555;
+	cursor: pointer;
 }
 
 #elapsed-time {
@@ -157,22 +205,6 @@ h2 {
 	font-size: 30px;
 	padding: 0px 20px;
 /* 	border: 2px solid #555; */
-}
-
-p {
-	margin-top: 15px;
-	text-decoration: none;
-	color: #555;
-	cursor: pointer;
-}
-
-.menu form {
-	float: left;
-	margin-left: 20px;
-	margin-top: 13px;
-	text-decoration: none;
-	color: #555;
-	cursor: pointer;
 }
 
 #player-grid-parent {
@@ -267,6 +299,7 @@ p {
 
 #enemy-grid .cube:hover .cube-face {
 	background: black;
+	cursor: pointer;
 }
 
 #shape-matrix .cube:hover .cube-face {
@@ -333,7 +366,12 @@ p {
 
 #dimensions p {
 	display: inline-block;
-	float: right;	
+	float: right;
+	cursor: pointer;
+}
+
+#dimensions p:hover {
+	color: #A20025;
 }
 
 @-webkit-keyframes waving-five {

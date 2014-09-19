@@ -3,33 +3,17 @@ var gridSize = 100;
 var cubeFaces = ["front", "back", "left", "right", "top", "bottom"];
 
 $(document).ready(function() {
-	var createNewShip = document.getElementById("create-ship-button");
-	createNewShip.addEventListener('click', function() {
-		document.getElementById("create-ship-form").submit();
-	});
-	
-	var placeShipsRandomly = document.getElementById("place-ships-randomly-button");
-	placeShipsRandomly.addEventListener('click', function() {
-		document.getElementById("place-ships-randomly-form").submit();
-	});
-	
-	var startBattle = document.getElementById("start-battle-button");
-	startBattle.addEventListener('click', function() {
-		document.getElementById("start-battle-form").submit();
-	});
-	
-	var placeShipsRandomlyRemote = document.getElementById("place-ships-randomly-remote-button");
-	placeShipsRandomlyRemote.addEventListener('click', function() {
-		document.getElementById("place-ships-randomly-remote-form").submit();
-	});
-	
-	var setPlayerReadyButton = document.getElementById("set-player-ready-button");
-	setPlayerReadyButton.addEventListener('click', function() {
-		$.ajax({
-			url : "/battleship/remote/setPlayerReady",
-		}).done(function(msg) {
-			checkBattleStatus();
-		});
+	$("a").on("click", function(event){
+		event.preventDefault();
+		if ($(this).data("form") == "set-player-ready-form") {
+			$.ajax({
+				url : "/battleship/remote/setPlayerReady",
+			}).done(function(msg) {
+				checkBattleStatus();
+			});
+		} else {
+			document.getElementById($(this).data("form")).submit();
+		}
 	});
 	
 	placeCubesFilledWithJSONDataToPlayerGrid();
@@ -42,16 +26,12 @@ function checkBattleStatus() {
 			url : "/battleship/getBattleStatus",
 		}).done(function(msg) {
 			if (msg == "YOUR_TURN" || msg == "NOT_YOUR_TURN") {
-				submitRemoteForm();
+				document.getElementById("start-battle-remote-form").submit();
 				clearInterval(battleStatusInterval);
 			}
 		});
 	}, 1000);
 }
-
-function submitRemoteForm() {
-	document.getElementById("start-battle-remote-form").submit();
-};
 
 function allowDrop(event) {
 	event.preventDefault();

@@ -9,7 +9,7 @@ public class TargetingSystem extends Grid {
 	private boolean targetingStrategySwitch = true;
 
 	public TargetingSystem() {
-		targetGrid = new PositionStatus[GRIDSIZE];
+		targetGrid = new PositionStatus[gridSize];
 		Arrays.fill(targetGrid, PositionStatus.UNTOUCHED);
 	}
 	
@@ -51,7 +51,7 @@ public class TargetingSystem extends Grid {
 	private boolean setTargetNextToHit() {
 		boolean result = false;
 		int index = 0;
-		while (index < (GRIDSIZE - 2) && !result) {
+		while (index < (gridSize - 2) && !result) {
 			if (PositionStatus.UNTOUCHED.equals(targetGrid[index]) && PositionStatus.HIT.equals(targetGrid[index + 1])) {
 				targetPosition = index;
 				result = true;
@@ -59,7 +59,7 @@ public class TargetingSystem extends Grid {
 				targetPosition = index + 1;
 				result = true;
 			} else if (isSubmarine(index)) {
-				targetPosition = index - GRIDWIDTH + 1;
+				targetPosition = index - gridWidth + 1;
 				result = true;
 			}
 
@@ -69,21 +69,21 @@ public class TargetingSystem extends Grid {
 	}
 
 	private boolean isSubmarine(final int index) {
-		return (index + 2) < GRIDSIZE && targetPosition > GRIDWIDTH
+		return (index + 2) < gridSize && targetPosition > gridWidth
 				&& PositionStatus.HIT.equals(targetGrid[index])
 				&& PositionStatus.HIT.equals(targetGrid[index + 1])
 				&& PositionStatus.HIT.equals(targetGrid[index + 2])
-				&& PositionStatus.UNTOUCHED.equals(targetGrid[index - GRIDWIDTH + 1]);
+				&& PositionStatus.UNTOUCHED.equals(targetGrid[index - gridWidth + 1]);
 	}
 
 	private boolean setTargetDiagonally() {
 		boolean result = false;
 		int y = 0;
 		int x = 0;
-		while (y < GRIDSIZE && !result) {
+		while (y < gridSize && !result) {
 			x = y % 2;
-			while (x < GRIDWIDTH && !result) {
-				targetPosition = x + y * GRIDWIDTH;
+			while (x < gridWidth && !result) {
+				targetPosition = x + y * gridWidth;
 				if (PositionStatus.UNTOUCHED.equals(targetGrid[targetPosition])) {
 					result = true;
 				} else {
@@ -99,9 +99,9 @@ public class TargetingSystem extends Grid {
 		int x;
 		int y;
 		while (!PositionStatus.UNTOUCHED.equals(targetGrid[targetPosition])) {
-			x = (int) (Math.random() * (GRIDWIDTH - 1));
-			y = (int) (Math.random() * (GRIDHEIGHT - 1));
-			targetPosition = x + y * GRIDWIDTH;
+			x = (int) (Math.random() * (gridWidth - 1));
+			y = (int) (Math.random() * (gridHeight - 1));
+			targetPosition = x + y * gridWidth;
 		}
 		return PositionStatus.UNTOUCHED.equals(targetGrid[targetPosition]);
 	}

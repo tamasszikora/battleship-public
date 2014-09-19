@@ -11,18 +11,18 @@ public class Board extends Grid {
 	private List<Ship> fleet = new ArrayList<>();
 	
 	public Board() {
-		grid = new Position[GRIDSIZE];
+		grid = new Position[gridSize];
 		fillGridWithBlankPositions();
 	}
 	
 	private void fillGridWithBlankPositions() {
-		for (int i = 0; i < GRIDSIZE; i++) {
+		for (int i = 0; i < gridSize; i++) {
 			grid[i] = new Position();
 		}
 	}
 	
 	public void resetBoard() {
-		for (int i = 0; i < GRIDSIZE; i++) {
+		for (int i = 0; i < gridSize; i++) {
 			grid[i].resetPosition();
 			fleet.clear();
 		}
@@ -65,9 +65,9 @@ public class Board extends Grid {
     }
 	
 	private boolean isLegalPosition(final int position, final int newLine) {
-		boolean result = position < GRIDSIZE;
+		boolean result = position < gridSize;
 		if (newLine > 0) {
-			result = result && ((position - 1) / GRIDWIDTH == position / GRIDWIDTH);
+			result = result && ((position - 1) / gridWidth == position / gridWidth);
 		}
 		return result;
 	}
@@ -93,6 +93,6 @@ public class Board extends Grid {
     private int calculatePosition(int value, int gridReferencePosition) {
         int x = value % sqrtShapeMatrixSize;
 		int y = value / sqrtShapeMatrixSize;
-		return x + y * GRIDWIDTH + gridReferencePosition;
+		return x + y * gridWidth + gridReferencePosition;
     }
 }

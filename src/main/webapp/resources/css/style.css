@@ -56,13 +56,20 @@ header div img {
 	height: 400px;
 }
 
+#thanks {
+	clear: both;
+	float: right;
+	margin-right: 20px;
+	cursor: default;
+}
+
 .main {
 	float: left;
 	display: inline-block;
 	font-size: 20px;
 	width: 900px;
-	height: 400px;
-	margin-bottom: 100px;
+	height: 450px;
+	margin-bottom: 0px;
 }
 
 h2 {

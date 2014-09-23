@@ -1,6 +1,4 @@
 	<div id="rightside" class="sidepics">
 		<img alt="BalazsPic" src="/battleship/resources/pics/sidepicright.png">
 	</div>
-	<div>
-		<img alt="" src="/battleship/resources/pics/aniko.png">
-	</div>
+	<div id="thanks">Special thanks to Anikó for the pictures!</div>
